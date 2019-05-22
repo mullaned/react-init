@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+import classes from './App.css';
 import Person from './Person/Person'
 
 
@@ -72,20 +72,20 @@ class App extends Component {
       
     }
 
-    let classes = ['red', 'bold'].join(' ');
+    let customClasses = ['red', 'bold'].join(' ');
 
     let otherClasses = [];
     if (this.state.persons.length <= 2){
-      otherClasses.push('red');
+      otherClasses.push(classes.red);
     }
     if (this.state.persons.length <= 1) {
-      otherClasses.push('bold');
+      otherClasses.push(classes.bold);
     }
 
     return (
       
-        <div className="App">
-          <h1 className={classes}>Hi, I'm the first app</h1>
+        <div className={classes.App}>
+          <h1 className={customClasses}>Hi, I'm the first app</h1>
           <p className={otherClasses.join(' ')}>React App</p>
           <button 
             style={style}

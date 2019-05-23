@@ -5,6 +5,12 @@ import Persons from '../components/Persons/Persons'
 
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+    console.log('[App.js] constructor');
+  }
+
   state= {
     persons: [
       {id: 1, name: 'David', age: 33},
@@ -13,7 +19,18 @@ class App extends Component {
     showPersons: false
   }
 
-  
+  static getDerivedStateFromProps(props, state) {
+    console.log('[App.js] getDerivedStateFromProps', props);
+    return state;
+  }
+
+  componentWillMount() {
+    console.log('[App.js] componentWillMount');
+  }
+
+  componentDidMount() {
+    console.log('[App.js] componentDidMount');
+  }
 
   nameChangerHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex(p => {
@@ -41,16 +58,16 @@ class App extends Component {
     this.setState({showPersons: !doesShow});
   }
   render(){
-    
+    console.log('[App.js] render');
     let persons = null;
     
     if (this.state.showPersons) {
       persons = 
-          <Persons 
-          persons = {this.state.persons}
-          clicked = {this.deletePersonHandler}
-          changed = {this.nameChangerHandler}
-          /> 
+        <Persons 
+        persons = {this.state.persons}
+        clicked = {this.deletePersonHandler}
+        changed = {this.nameChangerHandler}
+        /> 
     }
 
     return (  

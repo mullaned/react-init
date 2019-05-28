@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import classes from './Person.css';
+import Aux from '../../../hoc/Auxilary'
 
 class Person extends Component{
   render() {

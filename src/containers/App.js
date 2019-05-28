@@ -87,7 +87,7 @@ class App extends Component {
     }
 
     return (  
-        <WithClass classes={classes.App}>
+        <div className={classes.App}>
           <Cockpit 
             title= {this.props.appTitle}
             showPersons={this.state.showPersons}
@@ -96,7 +96,7 @@ class App extends Component {
           />
           
           {persons}       
-      </WithClass>
+      </div>
       
       
     );

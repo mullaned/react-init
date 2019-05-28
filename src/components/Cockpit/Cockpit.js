@@ -7,10 +7,11 @@ const Cockpit = ( props ) => {
     console.log('[Cockpit.js] useEffect');
 
     //Simulate Http request
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       // alert('Saved data to the cloud');
     }, 1000);
     return () => {
+      clearTimeout(timer);
       console.log('[Cockpit.js] cleaning work in useEffect')
     }
   }, [props.persons]);

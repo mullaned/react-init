@@ -3,6 +3,7 @@ import classes from './App.css';
 import Cockpit from '../components/Cockpit/Cockpit'
 import Persons from '../components/Persons/Persons'
 import WithClass from '../hoc/WithClass'
+import AuthContext from '../context/auth-context'
 
 
 class App extends Component {
@@ -98,15 +99,18 @@ class App extends Component {
 
     return (  
         <div className={classes.App}>
+        <AuthContext.Provider value={{ authenticated: this.state.authenticated, login: this.loginHandler}}>
           <Cockpit 
-            title= {this.props.appTitle}
-            showPersons={this.state.showPersons}
-            personsLength={this.state.persons.length}
-            clicked={this.togglePersonsHandler}
-            login={this.loginHandler}
-          />
-          
-          {persons}       
+              title= {this.props.appTitle}
+              showPersons={this.state.showPersons}
+              personsLength={this.state.persons.length}
+              clicked={this.togglePersonsHandler}
+              
+            />
+            
+          {persons} 
+        </AuthContext.Provider>
+                
       </div>
       
       

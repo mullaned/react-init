@@ -41,9 +41,10 @@ const Cockpit = ( props ) => {
       <p className={otherClasses.join(' ')}>React App</p>
       <button 
         className={btnClass}
-        onClick={props.clicked}>Toggle
-        ref={toggleBtnRef}
+        onClick={props.clicked}
+        ref={toggleBtnRef}>Toggle
       </button>
+      <button onClick={props.login}>Log In</button>
     </div>
     
   );
